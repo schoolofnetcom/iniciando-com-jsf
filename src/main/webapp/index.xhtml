@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml"
+	  xmlns:f = "http://java.sun.com/jsf/core"
+	  xmlns:h = "http://java.sun.com/jsf/html">
+   <head>
+      <title>JSF App</title>
+   </head>
+<body>
+	#{testAppBean.sayHello()}
+	#{testAppBean.getPersonName()}
+	
+	<h1>Events and Tags</h1>
+	<h:form>
+		<h:inputText value="#{personBean.name}">
+			<f:ajax listener="#{testAppBean.inputChange}" render="output"></f:ajax>
+		</h:inputText>
+		<h:outputText id="output" value="#{testAppBean.getPersonName()}"></h:outputText>
+		<h:commandButton value="Click Me" actionListener="#{testAppBean.clickMeBinding}"></h:commandButton>
+	</h:form>
+</body>
+</html>
